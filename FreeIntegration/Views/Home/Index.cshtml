@@ -1,0 +1,19 @@
+﻿@model LoginDT
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> usermanager
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+@if (User.Identity.IsAuthenticated)@*signInManager.IsSignedIn(User)*@
+{
+    Layout = "_Layout";
+    <div class="alert alert-primary" role="alert">
+        <b>@ViewBag.UserName</b> TRENDYOL APİ ENTEGRASYON PROJESİNE HOŞGELDİNİZ
+    </div>
+}
+else
+{
+    Layout = null;
+    <partial name="_Login" />
+}

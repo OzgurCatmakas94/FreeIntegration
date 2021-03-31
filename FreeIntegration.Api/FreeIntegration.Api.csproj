@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>8afbb56b-82c4-4083-97af-4353803b03c7</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="SimpleInjector" Version="5.3.0" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore.Mvc" Version="5.3.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FreeIntegration\FreeIntegration.Web.csproj" />
+    <ProjectReference Include="..\FreeIntegration.Models\FreeIntegration.Models.csproj" />
+    <ProjectReference Include="..\FreeIntegration.Services\FreeIntegration.Services.csproj" />
+  </ItemGroup>
+
+
+</Project>

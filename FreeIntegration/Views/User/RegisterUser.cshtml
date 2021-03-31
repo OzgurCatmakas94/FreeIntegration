@@ -1,0 +1,135 @@
+﻿@model RegisterDT
+@inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> usermanager
+@{
+    Layout = null;
+}
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+<partial name="_Navbar" />
+<body class="p-5" style="background-color: #00000026">
+    <div id="layoutAuthentication">
+        <div id="layoutAuthentication_content">
+            <main>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-7">
+                            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                <div class="card-header"><h3 class="text-center font-weight-light my-4">Kayıt Ol</h3></div>
+                                <div class="card-body">
+                                    <form asp-controller="User" asp-action="RegisterUser" method="post">
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Kullanıcı Adı</label>
+                                                    <input class="form-control" asp-for="UserName" />
+                                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Şifre</label>
+                                                    <input class="form-control" asp-for="Password" />
+                                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Şirket Adı</label>
+                                                    <input class="form-control" asp-for="CompanyName" />
+                                                    <span asp-validation-for="CompanyName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>E-posta</label>
+                                                    <input class="form-control" asp-for="Email" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Şehir</label>
+                                                    <input class="form-control" asp-for="City" />
+                                                    <span asp-validation-for="City" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Adres</label>
+                                                    <input class="form-control" asp-for="StreetAddress" />
+                                                    <span asp-validation-for="StreetAddress" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Posta Kodu</label>
+                                                    <input class="form-control" asp-for="PostalCode" />
+                                                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Telefon/GSM</label>
+                                                    <input class="form-control" asp-for="PhoneNumber" />
+                                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group mt-4 mb-0">
+                                            <button id="btnRegister" class="btn btn-primary btn-block" asp-controller="User" asp-action="RegisterUser">Create Account</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <div class="small"><a asp-controller="User" asp-action="Login">Hesabın var mı? Giriş yap!</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+<div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">HATA!</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @ViewBag.ErrorMessages
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+
+        @if(!string.IsNullOrWhiteSpace(ViewBag.ErrorMessages))
+        {
+            WriteLiteral("$('#myModal').modal('show');");
+        }
+    </script>
+}
+
+@*<script>
+        $(document).ready(function () {
+            $("#btnRegister").click(function () {
+                $("#myModal").fadeIn('slow');
+            });
+        });
+    </script>*@

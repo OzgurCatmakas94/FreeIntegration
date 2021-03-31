@@ -1,0 +1,109 @@
+﻿@page
+@model FreeIntegration.Models.Register.RegisterDT
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+@*@await Html.PartialAsync("_LoginPartial");*@
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+<br />
+<h2 class="text-dark container">Yeni Hesap Oluştur</h2>
+<br />
+<div class="container">
+    <form method="post" asp-route-returnUrl="/">
+        <div class="border backgroundWhite">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="UserName" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="UserName" class="form-control" />
+                </div>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.Password" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.Password" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.ConfirmPassword" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.ConfirmPassword" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.CompanyName" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.CompanyName" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.CompanyName" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.Email" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.Email" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.City" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.City" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.City" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.StreetAddress" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.StreetAddress" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.StreetAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.PostalCode" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.PostalCode" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.PostalCode" class="text-danger"></span>
+            </div>
+            <div class="form-group row">
+                <div class="col-2">
+                    <label asp-for="Input.PhoneNumber" class="col-form-label"></label>
+                </div>
+                <div class="col-5">
+                    <input asp-for="Input.PhoneNumber" class="form-control" />
+                </div>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group row">
+                <div class="col-5 offset-2">
+                    <button type="submit" class="btn btn-primary form-control">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
