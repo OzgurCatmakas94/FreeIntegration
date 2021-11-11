@@ -23,5 +23,9 @@
     <ProjectReference Include="..\FreeIntegration.Services\FreeIntegration.Services.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
 
 </Project>

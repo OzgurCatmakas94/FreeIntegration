@@ -32,7 +32,7 @@ namespace FreeIntegration.Web.Controllers.User
                 var result = _signInManager.PasswordSignInAsync(login.UserName, login.Password, false, lockoutOnFailure: true).Result;
                 if (result.Succeeded)
                 {
-                    
+                    ViewBag.UserName = login.UserName;
                     var exist = _db.Logins.OrderByDescending(x=>x.log_Date).FirstOrDefault(x => x.userName == login.UserName);
                     if (exist==null)
                     {
@@ -126,15 +126,7 @@ namespace FreeIntegration.Web.Controllers.User
         }
         public async Task<IActionResult> Logout()
         {
-            await _signInManager.SignOutAsync();
-            LoginUserLogDT loginLog = new LoginUserLogDT();
-            var user = _userManager.GetUserAsync(User) != null ? _userManager.GetUserAsync(User).Result : null;
-            if (user != null)
-                loginLog = _db.Logins.OrderByDescending(x => x.log_Date).FirstOrDefault(x => x.userName == user.UserName);
-            loginLog.logOut_Date = DateTime.Now.ToString();
-            _db.Logins.Update(loginLog);
-            _db.SaveChanges();
-
+            await _signInManager.SignOutAsync().ConfigureAwait(true);
             return Redirect("~/");//anasayfaya yönlendir.
         }
 

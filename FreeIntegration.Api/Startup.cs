@@ -1,21 +1,10 @@
-using FreeIntegration.Services.LoginService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Controllers;
-using Microsoft.AspNetCore.Mvc.ViewComponents;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using SimpleInjector;
-using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FreeIntegration.Api
 {
@@ -71,7 +60,7 @@ namespace FreeIntegration.Api
         }
         private void RegisterServicesIoc()
         {
-            container.Register<ILoginService, LoginService>();
+           // container.Register<ILoginService, LoginService>();
         }
         private void IntegrateSimpleInjector(IServiceCollection services)
         {
